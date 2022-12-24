@@ -1,0 +1,33 @@
+body {
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    background-color: darkgray;
+}
+
+div#message-container {
+    overflow: auto;
+    width: 90vw;
+    height: 90vh;
+    margin: 10px;
+    border-style: solid;
+    background-color: lightblue;
+    padding: 20px;
+}
+
+div.message:first-child, div.message:last-child {
+    margin: 0;
+}
+
+div.message {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+form#new-message-form {
+    margin: 10px;
+}
+
+form#new-message-form input#message {
+    padding: 5px;
+    border-radius: 5px;
+    width: 90vw;
+}

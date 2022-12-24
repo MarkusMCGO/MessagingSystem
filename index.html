@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <script type="module">
+    const form = document.getElementById("upload-form");
+
+    // Add an event listener to the form's submit event
+    form.addEventListener("submit", function(event) {
+      // Prevent the form from being submitted
+      event.preventDefault();
+
+      // Create a new FormData object to hold the form data
+      let formData = new FormData(form);
+
+      formData.set("Content-Type", "multipart/form-data");
+
+      // Create a new XMLHttpRequest object to send the request
+      const xhr = new XMLHttpRequest();
+
+      // Set the request method and URL
+      xhr.open("POST", "upload.php");
+
+      // Set the request's onload event handler
+      xhr.onload = function() {
+        // Check the status code of the response
+        if (xhr.status === 200) {
+          // The file was successfully uploaded
+          console.log(xhr.responseText)
+          console.log("uploaded")
+        } else {
+          // The file was not successfully uploaded
+        }
+      };
+
+      // Send the request
+      xhr.send(formData);
+    });
+  </script>
+  <script type="module">
+    fetch('/uploads/Uplands.mcworld')
+            .then(response => response.blob()) // Use the Response.blob() method to retrieve the file as a binary data object
+            .then(file => {
+              // You can then use the file data as needed in your JavaScript code
+              // For example, you could create a URL for the file using the URL.createObjectURL() method and use it to display the file in an <img> element
+              const url = URL.createObjectURL(file);
+              const button = document.getElementById('download');
+              button.download = "Uplands.mcworld";
+              button.href = url;
+            })
+            .catch(error => {
+              // Handle any errors that occurred during the request
+              console.log(error);
+            });
+  </script>
+  <link rel="stylesheet" href="styles.css" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <title>Uplands Website</title>
+</head>
+<body>
+<div id="grid-container">
+  <h1>Uplands Files</h1>
+  <form id="upload-form" enctype="multipart/form-data">
+    <label for="fileToUpload">Select a file to upload:</label>
+    <input type="file" name="fileToUpload" id="fileToUpload">
+    <input type="submit" value="Upload File" name="submit">
+  </form>
+  <a id="download" href="">Download Latest World</a>
+</div>
+</body>
+</html>

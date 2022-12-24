@@ -1,0 +1,23 @@
+body {
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  -webkit-user-select: none;
+  }
+
+  div#grid-container {
+    display: flex;
+    flex-direction: column;
+  }
+
+  a#download {
+    width: 200px;
+    text-decoration: none;
+    color: black;
+    background-color: lightgray;
+    margin-top: 10px;
+    padding: 3px 7px;
+    border-style: solid;
+    border-radius: 5px;
+    text-align: center;
+    
+  }
+

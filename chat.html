@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <script src="message.js"></script>
+  <title>Messaging System</title>
+  <link rel="stylesheet" href="chatstyles.css">
+  <meta charset="utf-8">
+</head>
+<body>
+<div id="message-container" style="overflow: auto">
+  <!-- Threads will be added here dynamically using JavaScript -->
+</div>
+<form id="new-message-form" method="post" action="send-message.php">
+  <input type="text" id="message" placeholder="Enter your message here" name="message">
+  <select id="sender" name="sender">
+    <option value="1">Markus</option>
+    <option value="2">Luis</option>
+    <option value="3">Srik</option>
+    <option value="4">ADOOOOMS</option>
+  </select>
+  <button type="submit">Send</button>
+</form>
+</body>
+</html>
